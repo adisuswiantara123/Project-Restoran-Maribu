@@ -33,10 +33,11 @@
       </div>
 
       <div class="navbar-extra">
-        <a href="#" id="search"><i data-feather="search"></i></a>
+        <a href="#" id="search-button"><i data-feather="search"></i></a> 
         <a href="#" id="shopping-cart"><i data-feather="shopping-cart"></i></a>
         <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
       </div>
+
     </nav>
 
     <!--bar end-->
@@ -51,13 +52,46 @@
             Rasakan kenikmatan kuliner yang tak tertandingi di Restoran Maribu<br />
             Tempat di mana cita rasa dan kenyamanan bertemu menjadi satu
           </p>
-          <a href="#" class="cta" id="pesan-sekarang">Pesan Sekarang</a>
+          <a href="#" class="cta" id="pesan-sekarang" onclick="openPopup()">Pesan Sekarang</a>
 
         </main>
       </section>
+    <!-- Hero Section End -->
 
-    <!--Hero Section End-->
+
+    <!-- Popup -->
+<div id="popup" class="popup">
+  <div class="popup-content">
+    <h3>Pesan Makanan</h3>
+    <label for="menu-select">Menu:</label>
+    <select id="menu-select">
+      <option value="">Pilih Menu</option>
+      <!-- Tambahkan opsi menu lainnya sesuai kebutuhan -->
+      <option value="Nasi Goreng">Nasi Goreng</option>
+      <option value="Beef Steak">Beef Steak</option>
+      <option value="Rawon">Rawon</option>
+      <option value="Salad">Salad</option>
+      <option value="Soto">Soto</option>
+      <option value="Gado-gado">Gado-gado</option>
+      <option value="Sate Ayam">Sate Ayam</option>
+    </select>
+    <br />
+    <label for="quantity">Jumlah:</label>
+    <input type="number" id="quantity" min="1" />
+    <br />
+    <button class="tombol" onclick="addOrder()">Tambahkan</button>
+    <button  class="tombol" onclick="calculateTotal()">Total Harga</button>
     
+    <br />
+    <h4>Daftar Pesanan:</h4>
+    <ul id="order-list"></ul>
+    <h4 id="total-price">Total Harga: </h4>
+    <br/>
+    <button class="tombol-keluar" style="display: block; margin:auto; " onclick="closePopup()">Keluar</button>
+  </div>
+</div>
+
+
 
     <!--About Section Start-->
 
@@ -160,22 +194,27 @@
          <div class="row">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.5891295163838!2d110.38054627465783!3d-7.833234892187867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a5701a2ae1c23%3A0x173dbeeddc56d9e!2sUniversitas%20Ahmad%20Dahlan%20-%20Kampus%204!5e0!3m2!1sid!2sid!4v1686971888201!5m2!1sid!2sid"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="map"></iframe>
            
-          <form action="">
+          <form action="submit.php" method="POST">
             <div class="input-group">
               <i data-feather="user"></i>
-              <input type="text" placeholder="nama">
+              <input type="text" name="nama" placeholder="nama" />
             </div>
-  
+          
             <div class="input-group">
               <i data-feather="mail"></i>
-              <input type="text" placeholder="email">
+              <input type="email" name="email" placeholder="email" />
             </div>
-  
+          
             <div class="input-group">
               <i data-feather="phone"></i>
-              <input type="text" placeholder="no hp">
+              <input type="text" name="no_hp" placeholder="no hp" />
             </div>
-  
+
+            <div class="input-group">
+              <i data-feather="send"></i>
+              <input type="text" name="message" placeholder="message" />
+            </div>
+          
             <button type="submit" class="button">Kirim Pesan</button>
           </form>
 
@@ -193,9 +232,9 @@
 
         <footer>
           <div class="social">
-            <a href="#"> <i data-feather="instagram"></i></a>
-            <a href="#"> <i data-feather="facebook"></i></a>
-            <a href="#"> <i data-feather="twitter"></i></a>
+            <a href="https://www.instagram.com/cristiano/"> <i data-feather="instagram"></i></a>
+            <a href="https://www.facebook.com/search/top?q=mark%20zuckerberg"> <i data-feather="facebook"></i></a>
+            <a href="https://twitter.com/elonmusk?s=20"> <i data-feather="twitter"></i></a>
           </div>
 
           <div class="links">
@@ -216,9 +255,16 @@
 
 
 
+ 
+
+
+
     <!--Feather Icons-->
     <script>
       feather.replace();
+
+    
+   
     </script>
 
     <!--Java Script-->
